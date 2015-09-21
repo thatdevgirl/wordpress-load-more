@@ -167,5 +167,5 @@ function loadMore__create_button($results) {
 }
 
 // Load the JS and CSS files for this plugin.
-wp_enqueue_script( 'load_more_js', content_url() . '/plugins/load-more/js/load-more.js', array('jquery'), '20150918', true );
-wp_enqueue_style( 'load_more_css', content_url() . '/plugins/load-more/css/load-more.css');
+wp_enqueue_script( 'load_more_js', plugin_dir_url( __FILE__ ) . '/js/load-more.js', array('jquery'), '20150918', true );
+wp_enqueue_style( 'load_more_css', plugin_dir_url( __FILE__ ) . '/css/load-more.css');
