@@ -16,8 +16,6 @@ This plugin supports pagination on a WordPress page via a "Load More" button.  C
 
 The number of posts to be updated will be automatically adjusted based on the number of remaining posts to be added and the button will automatically hide when there are no more posts to load.
 
-This plugin requires jQuery.
-
 == Installation ==
 
 This directory should be placed in the plugins directory in your WordPress installation.  Place the following code wherever you would like the "Load More" button to be displayed, for example, in your index.php or archive.php template file:
