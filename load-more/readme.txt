@@ -4,7 +4,7 @@ Tags: pagination, search, posts
 Donate Link: https://www.paypal.me/thatdevgirl
 Requires at least: 3.0.1
 Tested up to: 4.7.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,9 +28,9 @@ If this plugin is being used on a search results page, the button will query for
 
 == Changelog ==
 
-= 1.0 =
-* Initial release.
-
 = 1.1 =
 * Tested plugin on v4.7.1
 * Fixed a bug that did not allow articles to load if no #primary ID exists in DOM.
+
+= 1.0 =
+* Initial release.
