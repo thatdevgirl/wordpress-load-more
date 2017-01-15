@@ -1,14 +1,23 @@
 <?php
+/**
+ * @package Load More
+ */
+
 /*
  * Plugin Name: Load More
  * Description: Adds "Load More" pagination button to archive and search pages.
+ * Version: 1.1
+ * Author: Joni Halabi
+ * Author URI: http://www.jhalabi.com
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 
 /*
  * FUNCTION: loadMore__posts()
  *
- * USAGE: 
+ * USAGE:
  *    Call this function in your posts/archive template to add a "load more" button for pagination.
  *    This function takes no parameters.
  */
@@ -21,11 +30,11 @@ function loadMore__posts() {
 	// Set up arguments for the posts query.
 	$args = array(
 		'paged'          => $paged,
-		'posts_per_page' => $posts_per_page, 
+		'posts_per_page' => $posts_per_page,
 		'post_type'      => 'post',
 		'tag'            => single_tag_title('', false)
 	);
-	
+
 	// Make the query.
 	$query = new WP_Query($args);
 
@@ -43,9 +52,9 @@ function loadMore__posts() {
  * PARAMETERS:
  *    $search_query: the search query
  *
- * USAGE: 
- *    Pass this function the search query as if it was the $args variable for WP_Query. 
- *    Also, if your search archive uses a filter for how many posts to show, pass that number 
+ * USAGE:
+ *    Pass this function the search query as if it was the $args variable for WP_Query.
+ *    Also, if your search archive uses a filter for how many posts to show, pass that number
  *    here as the second argument.
  */
 
@@ -56,7 +65,7 @@ function loadMore__search() {
 	$search_param = $search_query['s'];
 
 	// Get pagination options.
-	$posts_per_page = get_option('posts_per_page');	
+	$posts_per_page = get_option('posts_per_page');
 
 	// Paginate & merge results
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -79,7 +88,7 @@ function loadMore__search() {
  *    $paged: the number of the next page to load
  *    $search_param: search parameters (could be blank)
  *
- * USAGE: 
+ * USAGE:
  *    Helper function to create and display load more button.
  */
 
@@ -89,7 +98,7 @@ function loadMore__create_results_obj($query, $posts_per_page, $paged, $search_p
 	$max_num_pages = $query->max_num_pages;
 	$num_of_posts  = min($posts_per_page, $found_posts - ($paged * $posts_per_page));
 
-	// Create the return object. 
+	// Create the return object.
 	$obj = (object) array(
 		'paged'          => $paged,
 		'posts_per_page' => $posts_per_page,
@@ -106,7 +115,7 @@ function loadMore__create_results_obj($query, $posts_per_page, $paged, $search_p
 /*
  * FUNCTION: loadMore__get_search_query()
  *
- * USAGE: 
+ * USAGE:
  *    Helper function to retrieve search query from WP.
  */
 
@@ -131,7 +140,7 @@ function loadMore__get_search_query() {
  * PARAMETERS:
  *    $results: object containing query results and attributes.
  *
- * USAGE: 
+ * USAGE:
  *    Helper function to create and display load more button.
  */
 
