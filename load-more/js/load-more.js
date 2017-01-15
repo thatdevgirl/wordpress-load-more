@@ -11,13 +11,13 @@
 
 			$('#loadMoreBtn').on('click', function(e) {
 				e.preventDefault();
-				
+
 				var btn = $('#loadMoreBtn');
-				btn.innerHTML = 'Loading...';
-				
+				btn.text('Loading...');
+
 				var params = _this.getParams(btn);
 				var href   = _this.getHref(params);
-			
+
 				$('<div />').load(href, function() {
 					var data = $(this);
 
@@ -29,7 +29,7 @@
 					//	highlightSearchTerms(term);
 					//}
 				});
-			});		
+			});
 		},
 
 		// Get the button parameters.
@@ -57,7 +57,7 @@
 		// Load all data found after the last post article
 		loadNextPage: function(data) {
 			data.find('article').each(function() {
-				var articles = $('#primary article');
+				var articles = $('article');
 				var i = articles.length - 1;
 
 				$(this).insertAfter(articles[i]);
@@ -71,26 +71,26 @@
 				btn.hide();
 			}
 
-			// Otherwise, update the button to load the next page. 
+			// Otherwise, update the button to load the next page.
 			else {
 				var num_posts = Number(params.found_posts) - ( Number(params.paged) * Number(params.per_page) );
-			
+
 				if ( Number(params.per_page) < Number(num_posts) ) {
 					num_posts = Number(params.per_page);
 				}
-		
+
 				// Update the button text.
 				if (num_posts == 1)  {
 					btn.text('Load 1 more article');
 				} else {
 					btn.text('Load ' + num_posts + ' more articles');
 				}
-		
+
 				// Update the button page attribute.
 				params.paged++;
 				btn.attr('data-paged', params.paged);
 			}
-		
+
 			return true;
 		}
 	};
