@@ -4,22 +4,22 @@
  * Handles "load more" pagination at the bottom of archive pages, etc.
  */
 
-( function($) {
-	var loadMorePosts = {
+(function($) {
+	const loadMorePosts = {
 		go: function() {
-			var _this = this;
+			const _this = this;
 
-			$('#loadMoreBtn').on('click', function(e) {
+			$('#loadMoreBtn').on('click', (e) => {
 				e.preventDefault();
 
-				var btn = $('#loadMoreBtn');
+				let btn = $('#loadMoreBtn');
 				btn.text('Loading...');
 
-				var params = _this.getParams(btn);
-				var href   = _this.getHref(params);
+				const params = this.getParams(btn);
+				const href = this.getHref(params);
 
 				$('<div />').load(href, function() {
-					var data = $(this);
+					const data = $(this);
 
 					_this.loadNextPage(data);
 					_this.updateBtn(btn, params);
@@ -34,15 +34,13 @@
 
 		// Get the button parameters.
 		getParams: function(btn) {
-			var params = {
+			return {
 				paged:        btn.attr('data-paged'),
 				max_pages:    btn.attr('data-maxpages'),
 				per_page:     btn.attr('data-perpage'),
 				found_posts:  btn.attr('data-foundposts'),
 				search_param: btn.attr('data-searchparam')
 			};
-
-			return params;
 		},
 
 		// Construct the search URL for the next page of posts.
@@ -57,8 +55,8 @@
 		// Load all data found after the last post article
 		loadNextPage: function(data) {
 			data.find('article').each(function() {
-				var articles = $('article');
-				var i = articles.length - 1;
+				const articles = $('article');
+				const i = articles.length - 1;
 
 				$(this).insertAfter(articles[i]);
 			});
@@ -67,13 +65,13 @@
 		// Update the button after displaying the next page of posts.
 		updateBtn: function(btn, params) {
 			// If we loaded the last page, hide the button.
-			if ( !Number(params.paged) || Number(params.paged) >= Number(params.max_pages) ) {
+			if (!Number(params.paged) || Number(params.paged) >= Number(params.max_pages)) {
 				btn.hide();
 			}
 
 			// Otherwise, update the button to load the next page.
 			else {
-				var num_posts = Number(params.found_posts) - ( Number(params.paged) * Number(params.per_page) );
+				let num_posts = Number(params.found_posts) - ( Number(params.paged) * Number(params.per_page) );
 
 				if ( Number(params.per_page) < Number(num_posts) ) {
 					num_posts = Number(params.per_page);
@@ -95,6 +93,8 @@
 		}
 	};
 
-	loadMorePosts.go();
+  $(document).ready(function() {
+    loadMorePosts.go();
+  });
 
-} )(jQuery);
+})(jQuery);
