@@ -32,10 +32,8 @@ function load_more_create_button( $results ) {
 			$btn_text = 'Load ' . $results->num_of_posts . ' more articles';
 		}
 
-		?>
-		<a href="#" id="loadMoreBtn" class="<?php echo $class; ?>" <?php echo $attr; ?>>
-			<?php echo $btn_text; ?>
-		</a>
-		<?
+		print '<a href="#" id="loadMoreBtn" class="' . $class . '" ' . $attr . '>' . $btn_text . '</a>';
 	}
+
+	print '<p>pfft</p>';
 }
