@@ -15,15 +15,4 @@ if ( !defined( 'ABSPATH' ) ) {
   exit;
 }
 
-require( 'inc/set-button.inc.php' );
-
-// // Required functions.
-// require('inc/load-more-posts.inc');
-// require('inc/load-more-search.inc');
-// require('inc/load-more-create-results-obj.inc');
-// require('inc/load-more-get-search-query.inc');
-// require('inc/load-more-create-button.inc');
-//
-// // JS and CSS assets.
-//wp_enqueue_script( 'load_more_js', plugin_dir_url( __FILE__ ) . '/js/load-more.min.js', array('jquery'), '20171116', true );
-// wp_enqueue_style( 'load_more_css', plugin_dir_url( __FILE__ ) . '/css/load-more.min.css');
+require( 'inc/load-more-stuff.inc.php' );
