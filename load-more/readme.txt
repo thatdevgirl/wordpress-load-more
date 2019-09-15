@@ -1,6 +1,6 @@
 === Load More Stuff ===
 Contributors: thatdevgirl
-Tags: pagination, search, posts
+Tags: pagination, search, archive
 Donate Link: https://www.paypal.me/thatdevgirl
 Requires at least: 3.0.1
 Tested up to: 5.2.2
@@ -10,17 +10,18 @@ Add a "load more" button to your archive and search results pages to dynamically
 
 == Description ==
 
-This plugin allows sites to add a "Load more" button at the end of archive and search results pages.  Clicking on the button will add additional posts from a query to the bottom of the page in intervals set by the maximum number of posts option in the WordPress admin.
+This plugin allows sites to add a "Load more" button at the end of archive and search results pages.  Clicking on the button will add the next "page" of posts to the bottom of the page in intervals set by the maximum number of posts option in the WordPress admin.
 
 == Installation ==
 
 1. In the WordPress admin, install and activate the "Load More Stuff" plugin.
 
+2. The "Load More" button will automatically be added to the bottom of all archive and search results pages. To remove the button, deactivate this plugin.
+
 == Changelog ==
 
 = 2.0 =
-* Major code refactoring.
-* Add settings page to display / hide load more button on archive and search results pages.
+* Major code refactoring to support WordPress 5.x.
 
 = 1.2 =
 * Tested plugin on v4.9
